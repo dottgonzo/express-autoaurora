@@ -13,10 +13,11 @@ interface Iopt {
     time?: number;
     done?: Function;
 }
-export = class AutoAurora extends AuroraNet {
+class AutoAurora extends AuroraNet {
 
     constructor(sensors: IAddress[], tz: string, options?: Iopt) {
         super(sensors, tz);
+
 
         let _this = this;
 
@@ -56,5 +57,15 @@ export = class AutoAurora extends AuroraNet {
 
 
     }
+
+}
+
+
+export = function(sensors: IAddress[], tz: string, options?: Iopt) {
+
+    let AutoA = new AutoAurora(sensors, tz, options);
+
+    return AutoA.Router();
+
 
 }
