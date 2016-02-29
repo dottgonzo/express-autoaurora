@@ -11,8 +11,7 @@ interface IAddress {
 }
 interface Iopt {
     time?: number;
-    done?: Function
-
+    done?: Function;
 }
 export = class AutoAurora extends AuroraNet {
 
