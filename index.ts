@@ -26,7 +26,16 @@ export = class AutoAurora extends AuroraNet {
 
         if (!options.done) {
             options.done = function(d) {
-                rpj.post("http://localhost/db/sensor/receive", d);
+
+                for (let i = 0; i < d.length; i++) {
+
+                    let sensor = d[i];
+
+                    rpj.post("http://localhost/db/sensors/" + sensor.uid + "/receive", sensor);
+
+                }
+
+
             }
 
 
