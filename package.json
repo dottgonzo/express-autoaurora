@@ -1,0 +1,38 @@
+{
+  "name": "express-autoaurora",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dottgonzo/express-autoaurora.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dottgonzo/express-autoaurora/issues"
+  },
+  "homepage": "https://github.com/dottgonzo/express-autoaurora#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-bump": "^1.0.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^3.0.1",
+    "gulp-mocha": "^2.2.0",
+    "gulp-prompt": "^0.1.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-tag-version": "^1.3.0",
+    "gulp-typescript": "^2.12.0",
+    "gulp-util": "^3.0.7",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "express-aurorajs": "^1.0.4",
+    "request-promise-json": "^1.0.4",
+    "timerdaemon": "0.0.4"
+  }
+}
