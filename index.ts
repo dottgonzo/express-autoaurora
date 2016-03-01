@@ -19,7 +19,7 @@ interface Iopt {
 }
 class AutoAurora extends AuroraNet {
 
-    constructor(obj: { conf: { addresses: IAddress[], tz: string}, options?: Iopt }) {
+    constructor(obj: { conf: { addresses: IAddress[], tz: string }, options?: Iopt }) {
         super(obj.conf.addresses, obj.conf.tz);
 
 
@@ -36,7 +36,7 @@ class AutoAurora extends AuroraNet {
 
                     let sensor = d[i];
 
-                    rpj.post("http://localhost/db/sensors/" + sensor.uid, { data: sensor });
+                    rpj.post("http://localhost/sensors/" + sensor.uid, { data: sensor });
 
                 }
 
@@ -48,31 +48,28 @@ class AutoAurora extends AuroraNet {
 
         if (!obj.options.time) obj.options.time = 30000;
 
-        timerdaemon.pre(obj.options.time, function() {
+        setTimeout(function() {
+            timerdaemon.pre(obj.options.time, function() {
+console.log('queryng...')
+                _this.data().then(function(d) {
 
-            _this.data().then(function(d) {
+                    if (obj.options.urlingecold) {
 
-                if (obj.options.urlingecold) {
+                        OldIngeco(d, obj.options.urlingecold);
 
-                    OldIngeco(d, obj.options.urlingecold);
-
-                }
-
-
-                obj.options.done(d);
+                    }
 
 
+                    obj.options.done(d);
 
 
+                }).catch(function(err) {
+                    console.log(err);
+                });
 
+            });
 
-
-            }).catch(function(err) {
-                console.log(err);
-            })
-
-        });
-
+        }, 30000);
 
 
     }
@@ -80,7 +77,7 @@ class AutoAurora extends AuroraNet {
 }
 
 
-export = function(obj: { conf: { addresses: IAddress[], tz: string}, options?: Iopt }) {
+export = function(obj: { conf: { addresses: IAddress[], tz: string }, options?: Iopt }) {
 
     let AutoA = new AutoAurora(obj);
 
