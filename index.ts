@@ -31,7 +31,8 @@ class AutoAurora extends AuroraNet {
 
         if (!obj.options.done) {
             obj.options.done = function(d) {
-
+                
+                    rpj.post("http://localhost/heartbeat");
                 for (let i = 0; i < d.length; i++) {
 
                     let sensor = d[i];
