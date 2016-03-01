@@ -19,8 +19,8 @@ interface Iopt {
 }
 class AutoAurora extends AuroraNet {
 
-    constructor(obj: { addresses: IAddress[], tz: string, options?: Iopt }) {
-        super(obj.addresses, obj.tz);
+    constructor(obj: { conf: { addresses: IAddress[], tz: string}, options?: Iopt }) {
+        super(obj.conf.addresses, obj.conf.tz);
 
 
         let _this = this;
@@ -80,7 +80,7 @@ class AutoAurora extends AuroraNet {
 }
 
 
-export = function(obj: { addresses: IAddress[], tz: string, options?: Iopt }) {
+export = function(obj: { conf: { addresses: IAddress[], tz: string}, options?: Iopt }) {
 
     let AutoA = new AutoAurora(obj);
 
