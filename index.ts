@@ -50,11 +50,11 @@ class AutoAurora extends AuroraNet {
 
         setTimeout(function() {
             timerdaemon.pre(obj.options.time, function() {
-console.log('queryng...')
+                console.log('queryng...')
                 _this.data().then(function(d) {
 
                     if (obj.options.urlingecold) {
-
+                        console.log('sending to oldingeco...')
                         OldIngeco(d, obj.options.urlingecold);
 
                     }
