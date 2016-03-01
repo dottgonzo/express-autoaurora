@@ -15,28 +15,28 @@ interface IAddress {
 interface Iopt {
     time?: number;
     done?: Function;
-    urlingecold?:string;
+    urlingecold?: string;
 }
 class AutoAurora extends AuroraNet {
 
-    constructor(sensors: IAddress[], tz: string, options?: Iopt) {
-        super(sensors, tz);
+    constructor(obj: { addresses: IAddress[], tz: string, options?: Iopt }) {
+        super(obj.addresses, obj.tz);
 
 
         let _this = this;
 
-        if (!options) {
-            options = <Iopt>{}
+        if (!obj.options) {
+            obj.options = <Iopt>{}
         }
 
-        if (!options.done) {
-            options.done = function(d) {
+        if (!obj.options.done) {
+            obj.options.done = function(d) {
 
                 for (let i = 0; i < d.length; i++) {
 
                     let sensor = d[i];
 
-                    rpj.post("http://localhost/db/sensors/" + sensor.uid, {data:sensor});
+                    rpj.post("http://localhost/db/sensors/" + sensor.uid, { data: sensor });
 
                 }
 
@@ -46,27 +46,27 @@ class AutoAurora extends AuroraNet {
 
         }
 
-        if (!options.time) options.time = 30000;
+        if (!obj.options.time) obj.options.time = 30000;
 
-        timerdaemon.pre(options.time, function() {
+        timerdaemon.pre(obj.options.time, function() {
 
             _this.data().then(function(d) {
-                
-if(options.urlingecold){
 
-    OldIngeco(d,options.urlingecold);
-    
-} 
+                if (obj.options.urlingecold) {
 
-    
-                    options.done(d);
+                    OldIngeco(d, obj.options.urlingecold);
 
-                
-                
+                }
 
-                
-                
-                
+
+                obj.options.done(d);
+
+
+
+
+
+
+
             }).catch(function(err) {
                 console.log(err);
             })
@@ -80,9 +80,9 @@ if(options.urlingecold){
 }
 
 
-export = function(sensors: IAddress[], tz: string, options?: Iopt) {
+export = function(obj: { addresses: IAddress[], tz: string, options?: Iopt }) {
 
-    let AutoA = new AutoAurora(sensors, tz, options);
+    let AutoA = new AutoAurora(obj);
 
     return AutoA.Router();
 
