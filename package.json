@@ -31,7 +31,11 @@
     "mocha": "^2.4.5"
   },
   "dependencies": {
-    "express-aurorajs": "^1.0.4",
+    "asyncawait": "^1.0.3",
+    "bluebird": "^3.3.3",
+    "express-aurorajs": "^1.0.5",
+    "lodash": "^4.5.1",
+    "moment-timezone": "^0.5.0",
     "request-promise-json": "^1.0.4",
     "timerdaemon": "0.0.4"
   }

@@ -1,6 +1,9 @@
 import AuroraNet = require("express-aurorajs");
-
+import * as _ from "lodash";
 import timerdaemon = require("timerdaemon");
+
+import OldIngeco = require("./modules/oldingeco");
+import PowerPartials = require("./modules/setpowerpartials");
 
 let rpj = require("request-promise-json");
 
@@ -12,6 +15,7 @@ interface IAddress {
 interface Iopt {
     time?: number;
     done?: Function;
+    urlingecold?:string;
 }
 class AutoAurora extends AuroraNet {
 
@@ -47,7 +51,22 @@ class AutoAurora extends AuroraNet {
         timerdaemon.pre(options.time, function() {
 
             _this.data().then(function(d) {
-                options.done(d);
+                
+if(options.urlingecold){
+
+    OldIngeco(d,options.urlingecold);
+    
+} 
+
+    
+                    options.done(d);
+
+                
+                
+
+                
+                
+                
             }).catch(function(err) {
                 console.log(err);
             })

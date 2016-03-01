@@ -5,7 +5,9 @@
   "ambientDependencies": {
     "bluebird": "github:DefinitelyTyped/DefinitelyTyped/bluebird/bluebird.d.ts#dd328830dddffbe19e9addd7cf8532cbd3600816",
     "express": "github:DefinitelyTyped/DefinitelyTyped/express/express.d.ts#dd638012d63e069f2c99d06ef4dcc9616a943ee4",
+    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash-3.10.d.ts#86dbea8fc37d9473fee465da4f0a21bea4f8cbd9",
     "mime": "github:DefinitelyTyped/DefinitelyTyped/mime/mime.d.ts#cb5206a8ac1c9a3ddfd126f5ecea6729b2361452",
+    "moment-timezone": "github:DefinitelyTyped/DefinitelyTyped/moment-timezone/moment-timezone.d.ts#9e95ea8ede147d9822f10cffd3d32799ec121216",
     "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#48c1e3c1d6baefa4f1a126f188c27c4fefd36bff",
     "serve-static": "github:DefinitelyTyped/DefinitelyTyped/serve-static/serve-static.d.ts#0fa4e9e61385646ea6a4cba2aef357353d2ce77f"
   }
