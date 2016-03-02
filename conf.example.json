@@ -1,0 +1,19 @@
+{
+    "conf": {
+        "conf": {
+            "addresses": [
+           {
+               "dev": "1-1.3",
+               "uuid": "UzrjeALMB_6LAlQLhQss6w",
+               "address": 2
+           }
+       ],
+            "tz": "Europe/Rome"
+        },
+        "options": {
+            "time":300000,
+            "urlingecold":"http://admin.ingecotech.com/datacollection/datasend"
+            
+        }
+    }
+}
