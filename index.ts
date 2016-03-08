@@ -37,7 +37,7 @@ class AutoAurora extends AuroraNet {
 
                     let sensor = d[i];
 
-                   if (sensor.active) rpj.post("http://localhost/sensors/" + sensor.uid, { data: sensor });
+                   rpj.post("http://localhost/sensors/" + sensor.uid, { data: sensor });
 
                 }
 
