@@ -2,7 +2,6 @@ import AuroraNet = require("express-aurorajs");
 import * as _ from "lodash";
 import timerdaemon = require("timerdaemon");
 
-import OldIngeco = require("./modules/oldingeco");
 import PowerPartials = require("./modules/setpowerpartials");
 
 let rpj = require("request-promise-json");
@@ -26,18 +25,18 @@ class AutoAurora extends AuroraNet {
         let _this = this;
 
         if (!obj.options) {
-            obj.options = <Iopt>{}
+            obj.options = <Iopt>{};
         }
 
         if (!obj.options.done) {
             obj.options.done = function(d) {
-                
-                    rpj.post("http://localhost/heartbeat");
+
+                rpj.post("http://localhost/heartbeat");
                 for (let i = 0; i < d.length; i++) {
 
                     let sensor = d[i];
 
-                   rpj.post("http://localhost/sensors/" + sensor.uid, { data: sensor });
+                    rpj.post("http://localhost/sensors/" + sensor.uid, { data: sensor });
 
                 }
 
@@ -50,14 +49,8 @@ class AutoAurora extends AuroraNet {
 
         setTimeout(function() {
             timerdaemon.pre(obj.options.time, function() {
-                console.log('queryng...')
+                console.log("queryng...");
                 _this.data().then(function(d) {
-
-                    if (obj.options.urlingecold) {
-                        console.log('sending to oldingeco...')
-                        OldIngeco(d, obj.options.urlingecold);
-
-                    }
 
 
                     obj.options.done(d);
