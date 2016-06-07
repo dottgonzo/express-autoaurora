@@ -40,7 +40,7 @@ class AutoAurora extends AuroraNet {
 
                 }
 
-            }
+            };
 
 
         }
